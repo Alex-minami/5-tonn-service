@@ -1,7 +1,7 @@
 import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 
 const sourceUrl = process.env.STATIC_SOURCE_URL ?? "http://127.0.0.1:3000/";
-const publicUrl = process.env.PUBLIC_SITE_URL ?? "https://alex-minami.github.io/transsky-drivers/";
+const publicUrl = process.env.PUBLIC_SITE_URL ?? "https://alex-minami.github.io/5-tonn-service/";
 const outputDir = new URL("../.pages/", import.meta.url);
 
 async function loadPage() {

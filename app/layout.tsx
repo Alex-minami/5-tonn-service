@@ -1,33 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin", "cyrillic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin", "cyrillic"],
-});
-
 export const metadata: Metadata = {
-  title: "Водитель на городской маршрут — работа в TransSky",
-  description:
-    "Работа водителем преимущественно по городу и области: понятные маршруты, прозрачная оплата и возвращение домой после большинства смен.",
+  title: "Бесплатная диагностика коммерческого транспорта — 5 ТОНН",
+  description: "Бесплатная диагностика коммерческого транспорта до 5 тонн для новых клиентов в Балашихе и Коломне. Запись по телефону +7(495)023-84-04.",
   openGraph: {
-    title: "Город. Смена. Домой. — TransSky",
-    description: "Работа водителем по городу и области в TransSky",
-    images: [{ url: "/og-city.png", width: 1731, height: 909 }],
+    title: "Бесплатная диагностика — 5 ТОНН",
+    description: "Проверим коммерческий автомобиль до 5 тонн быстро и бесплатно.",
+    images: [{ url: "/og-5tonn.png", width: 1200, height: 630 }],
   },
-  twitter: { card: "summary_large_image", images: ["/og-city.png"] },
+  twitter: { card: "summary_large_image", images: ["/og-5tonn.png"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={geist.variable}>{children}</body>
     </html>
   );
 }

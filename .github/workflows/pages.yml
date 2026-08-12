@@ -1,4 +1,4 @@
-name: Deploy TransSky to GitHub Pages
+name: Deploy 5 TONN to GitHub Pages
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
 
       - name: Render static site
         run: |
-          npm run start > /tmp/transsky-pages-server.log 2>&1 &
+          npm run start > /tmp/5-tonn-pages-server.log 2>&1 &
           npm run export:static
 
       - name: Configure Pages
