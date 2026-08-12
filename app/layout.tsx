@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   title: "Водитель категории CE — работа в TransSky",
   description:
     "Межгород на автомобилях компании: 180–260 тысяч рублей на руки, оформление по ТК РФ и график на выбор.",
+  openGraph: {
+    title: "Дорога платит честно — TransSky",
+    description: "Работа водителем категории CE в TransSky",
+    images: [{ url: "/og.png", width: 1728, height: 910 }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
