@@ -13,15 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Водитель категории CE — работа в TransSky",
+  title: "Водитель на городской маршрут — работа в TransSky",
   description:
-    "Межгород на автомобилях компании: 180–260 тысяч рублей на руки, оформление по ТК РФ и график на выбор.",
+    "Работа водителем преимущественно по городу и области: понятные маршруты, прозрачная оплата и возвращение домой после большинства смен.",
   openGraph: {
-    title: "Дорога платит честно — TransSky",
-    description: "Работа водителем категории CE в TransSky",
-    images: [{ url: "/og.png", width: 1728, height: 910 }],
+    title: "Город. Смена. Домой. — TransSky",
+    description: "Работа водителем по городу и области в TransSky",
+    images: [{ url: "/og-city.png", width: 1731, height: 909 }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", images: ["/og-city.png"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
