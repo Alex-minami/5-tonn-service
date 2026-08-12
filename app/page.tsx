@@ -1,6 +1,3 @@
-"use client";
-
-import { FormEvent, useState } from "react";
 import {
   Activity,
   CalendarClock,
@@ -57,33 +54,23 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  function submitForm(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!event.currentTarget.reportValidity()) return;
-    setSubmitted(true);
-    window.location.href = phoneHref;
-  }
-
   return (
     <main id="top">
       <header className="site-header">
         <Logo />
         <div className="header-controls">
           <a className="top-phone" href={phoneHref}><Phone /><b>{phoneDisplay}</b></a>
-          <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="site-menu" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}>
-            {menuOpen ? <X /> : <Menu />}
-          </button>
+          <details className="menu-details">
+            <summary className="menu-toggle" aria-label="Открыть меню"><Menu className="menu-open-icon" /><X className="menu-close-icon" /></summary>
+            <nav className="site-menu" id="site-menu" aria-label="Навигация">
+              <a href="#diagnostics">Что проверяем</a>
+              <a href="#process">Как записаться</a>
+              <a href="#terms">Условия акции</a>
+              <a href="#signup">Записаться</a>
+              <a href="#contacts">Контакты</a>
+            </nav>
+          </details>
         </div>
-        <nav className={menuOpen ? "site-menu is-open" : "site-menu"} id="site-menu" aria-label="Навигация">
-          <a href="#diagnostics" onClick={() => setMenuOpen(false)}>Что проверяем</a>
-          <a href="#process" onClick={() => setMenuOpen(false)}>Как записаться</a>
-          <a href="#terms" onClick={() => setMenuOpen(false)}>Условия акции</a>
-          <a href="#signup" onClick={() => setMenuOpen(false)}>Записаться</a>
-          <a href="#contacts" onClick={() => setMenuOpen(false)}>Контакты</a>
-        </nav>
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
@@ -130,14 +117,13 @@ export default function Home() {
 
       <section className="signup" id="signup">
         <SectionTitle>Запишитесь сейчас</SectionTitle>
-        <form className="signup-form" onSubmit={submitForm}>
+        <form className="signup-form" action={phoneHref}>
           <label><User /><span className="sr-only">Имя</span><input name="name" placeholder="Имя" autoComplete="name" required /></label>
           <label><Phone /><span className="sr-only">Телефон</span><input name="phone" type="tel" placeholder="Телефон" autoComplete="tel" pattern="[0-9+()\- ]{10,}" required /></label>
           <label><Truck /><span className="sr-only">Марка и модель</span><input name="vehicle" placeholder="Марка и модель" required /></label>
           <button className="submit-cta" type="submit"><CheckCircle2 />Получить бесплатную диагностику</button>
         </form>
-        <p className="privacy"><ShieldCheck />Ваши данные остаются на устройстве. Для записи откроется звонок в сервис.</p>
-        {submitted && <p className="form-status" role="status">Позвоните нам — заявка займёт меньше минуты.</p>}
+        <p className="privacy"><ShieldCheck />Ваши данные остаются на устройстве. После заполнения откроется звонок в сервис.</p>
       </section>
 
       <footer id="contacts">

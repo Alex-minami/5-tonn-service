@@ -17,10 +17,14 @@ button,input { font:inherit; }
 .header-controls { display:flex; align-items:center; gap:5.2vw; }
 .top-phone { display:flex; align-items:center; gap:1.4vw; font-size:2.5vw; }
 .top-phone svg { width:3.6vw; height:3.6vw; color:var(--orange); stroke-width:2.4; }
-.menu-toggle { width:5.5vw; height:5.5vw; padding:0; display:grid; place-items:center; border:0; background:transparent; cursor:pointer; }
+.menu-details { position:relative; }
+.menu-toggle { width:5.5vw; height:5.5vw; padding:0; display:grid; place-items:center; border:0; background:transparent; cursor:pointer; list-style:none; }
+.menu-toggle::-webkit-details-marker { display:none; }
 .menu-toggle svg { width:4.8vw; height:4.8vw; stroke-width:2.8; }
-.site-menu { position:absolute; z-index:30; right:3vw; top:8.5vw; width:24vw; padding:1.3vw; display:none; flex-direction:column; background:#111; color:#fff; box-shadow:0 1vw 3vw rgba(0,0,0,.3); }
-.site-menu.is-open { display:flex; }
+.menu-close-icon { display:none; }
+.menu-details[open] .menu-open-icon { display:none; }
+.menu-details[open] .menu-close-icon { display:block; }
+.site-menu { position:absolute; z-index:30; right:0; top:5.5vw; width:24vw; padding:1.3vw; display:flex; flex-direction:column; background:#111; color:#fff; box-shadow:0 1vw 3vw rgba(0,0,0,.3); }
 .site-menu a { padding:1vw 1.2vw; font-weight:800; font-size:1.35vw; text-transform:uppercase; border-bottom:1px solid #444; }
 .site-menu a:hover { color:var(--orange); }
 
@@ -83,7 +87,6 @@ button,input { font:inherit; }
 .submit-cta svg { width:3vw; height:3vw; }
 .privacy { margin:.5vw 0 0; display:flex; justify-content:center; align-items:center; gap:.55vw; color:#858585; font-size:1.35vw; }
 .privacy svg { width:1.6vw; height:1.6vw; }
-.form-status { margin:.4vw 0 0; color:var(--orange); text-align:center; font-weight:700; font-size:1.2vw; }
 
 footer { position:relative; min-height:11.8vw; overflow:hidden; color:#fff; background:linear-gradient(110deg,#151515,#090909); }
 .footer-grid { position:relative; z-index:2; width:82%; min-height:11.8vw; display:grid; grid-template-columns:1fr 1fr 1.3fr; }
@@ -95,11 +98,11 @@ footer { position:relative; min-height:11.8vw; overflow:hidden; color:#fff; back
 .footer-bars { position:absolute; right:-3vw; bottom:-7vw; width:18vw; height:23vw; transform:rotate(32deg); background:repeating-linear-gradient(90deg,var(--orange) 0 2.2vw,transparent 2.2vw 4.1vw); }
 
 @media(max-width:720px){
-  .site-header{height:76px;padding:0 16px}.brand-number{font-size:54px}.brand-number::after{bottom:-8px;width:43px;height:7px}.brand-words b{font-size:35px}.brand-words small{font-size:7px;margin-top:5px}.header-controls{gap:4px}.top-phone b{display:none}.top-phone svg{width:36px;height:36px}.menu-toggle{width:42px;height:42px}.menu-toggle svg{width:34px;height:34px}.site-menu{top:68px;right:12px;width:250px;padding:12px}.site-menu a{padding:12px;font-size:14px}
+  .site-header{height:76px;padding:0 16px}.brand-number{font-size:54px}.brand-number::after{bottom:-8px;width:43px;height:7px}.brand-words b{font-size:35px}.brand-words small{font-size:7px;margin-top:5px}.header-controls{gap:4px}.top-phone b{display:none}.top-phone svg{width:36px;height:36px}.menu-toggle{width:42px;height:42px}.menu-toggle svg{width:34px;height:34px}.site-menu{top:42px;right:0;width:250px;padding:12px}.site-menu a{padding:12px;font-size:14px}
   .hero{height:750px}.hero-copy{left:16px;top:30px;width:calc(100% - 32px)}.hero h1{font-size:clamp(48px,15vw,65px)}.hero h1 span{font-size:clamp(30px,9.2vw,40px)}.hero-copy>p{font-size:16px;margin:14px 0}.cta{height:56px;border-radius:8px;font-size:18px;padding:0 16px;gap:10px}.cta svg{width:26px;height:26px}.cta-primary{min-width:0;width:100%}.cta-secondary{min-width:0;width:58%;border-width:2px}.truck-photo{width:590px;right:-145px;bottom:-10px}.hero-graphics span{width:400px;height:45px}
   .diagnostics,.process,.signup{padding:34px 14px}.section-title{gap:10px;margin-bottom:22px}.section-title h2{font-size:27px}.section-title i{width:40px;height:8px}.diagnostic-grid{grid-template-columns:1fr 1fr;gap:12px}.diagnostic-grid article{height:190px;border-radius:13px}.diagnostic-grid article:last-child{grid-column:1/-1}.diagnostic-grid svg{width:82px;height:82px}.diagnostic-grid h3{font-size:18px}.steps-grid{grid-template-columns:1fr;gap:13px}.step-card{height:210px;border-radius:14px;padding:14px}.step-number{left:16px;top:14px;width:55px;height:55px;border-radius:7px;font-size:34px}.step-card>svg{width:75px;height:75px}.step-card h3{font-size:21px}.step-card p{font-size:18px}.step-chevron{display:none}
   .terms{margin:0 14px 12px;padding:18px 12px;min-height:500px;border-radius:14px}.terms-title{position:static;justify-content:center}.terms-title svg{width:60px;height:60px}.terms-title h2{font-size:31px}.terms-grid{margin:15px 0 0;height:385px;grid-template-columns:1fr 1fr}.terms-grid>div{padding:10px;border-bottom:1px solid rgba(255,255,255,.45)}.terms-grid>div:nth-child(odd){border-left:0}.terms-grid>div:nth-child(n+3){border-bottom:0}.terms-grid svg{width:55px;height:55px}.terms-grid b{font-size:17px}
-  .signup-form{grid-template-columns:1fr;gap:10px}.signup-form label{height:56px;border-width:1px;border-radius:8px;padding:0 14px}.signup-form label svg{width:25px;height:25px}.signup-form input{font-size:17px}.submit-cta{grid-column:auto;height:64px;border-radius:8px;font-size:19px}.submit-cta svg{width:28px;height:28px}.privacy{font-size:11px;gap:4px;text-align:center}.privacy svg{width:15px;height:15px}.form-status{font-size:12px}
+  .signup-form{grid-template-columns:1fr;gap:10px}.signup-form label{height:56px;border-width:1px;border-radius:8px;padding:0 14px}.signup-form label svg{width:25px;height:25px}.signup-form input{font-size:17px}.submit-cta{grid-column:auto;height:64px;border-radius:8px;font-size:19px}.submit-cta svg{width:28px;height:28px}.privacy{font-size:11px;gap:4px;text-align:center}.privacy svg{width:15px;height:15px}
   footer{min-height:260px}.footer-grid{width:82%;min-height:260px;grid-template-columns:1fr}.footer-grid>div,.footer-grid>a{padding:0 14px;font-size:15px}.footer-grid .footer-wide{grid-column:auto;border-left:0}.footer-grid svg{width:26px;height:26px}.footer-bars{right:-45px;bottom:-50px;width:150px;height:250px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.submit-cta{transition:none}}
