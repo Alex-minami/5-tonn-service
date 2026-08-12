@@ -23,7 +23,7 @@ test("server-renders the 5 ТОНН diagnostic landing page", async () => {
   assert.match(html, /<title>Бесплатная диагностика коммерческого транспорта — 5 ТОНН<\/title>/i);
   assert.match(html, /Бесплатная диагностика коммерческого транспорта до 5 тонн/i);
   assert.match(html, /\+7\(495\)023-84-04/);
-  assert.match(html, /reference-layout\.png/);
+  assert.match(html, /diagnostic-truck\.png/);
   assert.match(html, /Что входит в/);
   assert.match(html, /Условия акции/);
   assert.match(html, /Запишитесь сейчас/);
@@ -38,14 +38,15 @@ test("ships responsive imagery and finished metadata", async () => {
   ]);
 
   await Promise.all([
-    access(new URL("../public/reference-layout.png", import.meta.url)),
+    access(new URL("../public/diagnostic-truck.png", import.meta.url)),
     access(new URL("../public/og-5tonn.png", import.meta.url)),
   ]);
 
-  assert.match(page, /src="\/reference-layout\.png"/);
+  assert.match(page, /src="\/diagnostic-truck\.png"/);
   assert.match(page, /tel:\+74950238404/);
-  assert.match(css, /aspect-ratio: 941 \/ 1672/);
-  assert.match(css, /\.phone-top \{ left: 59\.7%/);
+  assert.match(css, /@media\(max-width:720px\)/);
+  assert.match(css, /\.diagnostic-grid\{grid-template-columns:1fr 1fr/);
+  assert.doesNotMatch(page, /reference-layout\.png|reference-art|hotspot/);
   assert.match(layout, /Бесплатная диагностика — 5 ТОНН/);
   assert.match(layout, /images: \[\{ url: "\/og-5tonn\.png"/);
 });
