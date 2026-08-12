@@ -3,7 +3,7 @@ name: Deploy TransSky to GitHub Pages
 on:
   push:
     branches:
-      - agent/publish-transsky
+      - main
   workflow_dispatch:
 
 permissions:

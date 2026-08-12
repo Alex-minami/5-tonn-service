@@ -2,7 +2,7 @@
 
 Адаптивный лендинг транспортной компании TransSky для найма водителей категории CE на магистральные перевозки.
 
-**Демо:** [transsky-drivers.alex-minami.chatgpt.site](https://transsky-drivers.alex-minami.chatgpt.site)
+**Демо:** [alex-minami.github.io/transsky-drivers](https://alex-minami.github.io/transsky-drivers/)
 
 ## Возможности
 
